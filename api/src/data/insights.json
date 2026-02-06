@@ -1,0 +1,16 @@
+{
+  "insights": [
+    {
+      "id": "ins_001",
+      "title": "Spending up 12% this month",
+      "detail": "Your dining and grocery spend increased compared to last month.",
+      "severity": "info"
+    },
+    {
+      "id": "ins_002",
+      "title": "Upcoming bill in 3 days",
+      "detail": "Utility Payment is scheduled for Feb 12.",
+      "severity": "warning"
+    }
+  ]
+}

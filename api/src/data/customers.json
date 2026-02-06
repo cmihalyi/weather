@@ -1,0 +1,18 @@
+{
+  "customers": [
+    {
+      "id": "cust_001",
+      "firstName": "Ava",
+      "lastName": "Nguyen",
+      "email": "ava.nguyen@example.com",
+      "createdAt": "2024-10-12T09:15:00.000Z"
+    },
+    {
+      "id": "cust_002",
+      "firstName": "Mateo",
+      "lastName": "Santos",
+      "email": "mateo.santos@example.com",
+      "createdAt": "2024-11-02T14:42:00.000Z"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "messages": [
+    {
+      "id": "msg_001",
+      "type": "notice",
+      "title": "Holiday Hours",
+      "body": "Our branches will be closed on Thursday. We extend online support to 6pm.",
+      "time": "2025-02-10T08:00:00.000Z",
+      "icon": "mail"
+    },
+    {
+      "id": "msg_002",
+      "type": "alert",
+      "title": "Low funds Checking",
+      "body": "Available balance is low on Checking.",
+      "time": "2025-11-25T15:30:00.000Z",
+      "icon": "alert"
+    },
+    {
+      "id": "msg_003",
+      "type": "conversation",
+      "title": "Jennifer and Amy",
+      "body": "No problem! We'll send a new card out first thing.",
+      "time": "2025-11-25T09:10:00.000Z",
+      "avatar": "https://i.pravatar.cc/48?img=47"
+    },
+    {
+      "id": "msg_004",
+      "type": "transfer",
+      "title": "Deposit to Savings",
+      "body": "A deposit over $200.00 was made to your Savings.",
+      "time": "2025-11-22T12:45:00.000Z",
+      "icon": "alert"
+    }
+  ]
+}
