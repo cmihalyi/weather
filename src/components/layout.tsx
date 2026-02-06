@@ -1,4 +1,4 @@
-import React, { type PropsWithChildren } from 'react'
+import { type PropsWithChildren } from 'react'
 import Header from './header'
 import { useAuth } from '@/hooks/use-auth'
 const Layout = ({children}: PropsWithChildren) => {

@@ -1,12 +1,12 @@
-import { useState } from "react"
-import {
-  Cell,
-  Pie,
-  PieChart,
-  ResponsiveContainer,
-  Sector,
-  Tooltip,
-} from "recharts"
+// import { useState } from "react"
+// import {
+//   Cell,
+//   Pie,
+//   PieChart,
+//   ResponsiveContainer,
+//   Sector,
+//   Tooltip,
+// } from "recharts"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import type { Transaction } from "@/types/api"
 
@@ -20,56 +20,56 @@ type PieDatum = {
   value: number
 }
 
-const amountFormatter = new Intl.NumberFormat("en-US", {
-  style: "currency",
-  currency: "USD",
-  maximumFractionDigits: 0,
-})
+// const amountFormatter = new Intl.NumberFormat("en-US", {
+//   style: "currency",
+//   currency: "USD",
+//   maximumFractionDigits: 0,
+// })
 
-const chartColors = [
-  "var(--chart-1)",
-  "var(--chart-2)",
-  "var(--chart-3)",
-  "var(--chart-4)",
-  "var(--chart-5)",
-]
+// const chartColors = [
+//   "hsl(var(--chart-1))",
+//   "hsl(var(--chart-2))",
+//   "hsl(var(--chart-3))",
+//   "hsl(var(--chart-4))",
+//   "hsl(var(--chart-5))",
+// ]
 
-const renderActiveShape = (props: any) => {
-  const {
-    cx,
-    cy,
-    innerRadius,
-    outerRadius,
-    startAngle,
-    endAngle,
-    fill,
-    payload,
-    value,
-  } = props
+// const renderActiveShape = (props: any) => {
+//   const {
+//     cx,
+//     cy,
+//     innerRadius,
+//     outerRadius,
+//     startAngle,
+//     endAngle,
+//     fill,
+//     payload,
+//     value,
+//   } = props
 
-  return (
-    <g>
-      <text x={cx} y={cy - 6} textAnchor="middle" className="fill-foreground text-sm">
-        {payload.name}
-      </text>
-      <text x={cx} y={cy + 12} textAnchor="middle" className="fill-muted-foreground text-xs">
-        {amountFormatter.format(value)}
-      </text>
-      <Sector
-        cx={cx}
-        cy={cy}
-        innerRadius={innerRadius}
-        outerRadius={outerRadius + 6}
-        startAngle={startAngle}
-        endAngle={endAngle}
-        fill={fill}
-      />
-    </g>
-  )
-}
+//   return (
+//     <g>
+//       <text x={cx} y={cy - 6} textAnchor="middle" className="fill-foreground text-sm">
+//         {payload.name}
+//       </text>
+//       <text x={cx} y={cy + 12} textAnchor="middle" className="fill-muted-foreground text-xs">
+//         {amountFormatter.format(value)}
+//       </text>
+//       <Sector
+//         cx={cx}
+//         cy={cy}
+//         innerRadius={innerRadius}
+//         outerRadius={outerRadius + 6}
+//         startAngle={startAngle}
+//         endAngle={endAngle}
+//         fill={fill}
+//       />
+//     </g>
+//   )
+// }
 
 const ExpendituresCard = ({ transactions, title = "Spending Breakdown" }: ExpendituresCardProps) => {
-  const [activeIndex, setActiveIndex] = useState(0)
+  // const [activeIndex, setActiveIndex] = useState(0)
   const totals = new Map<string, number>()
   transactions.forEach((transaction) => {
     if (transaction.amount >= 0) return
@@ -100,7 +100,7 @@ const ExpendituresCard = ({ transactions, title = "Spending Breakdown" }: Expend
         <CardTitle>{title}</CardTitle>
       </CardHeader>
       <CardContent className="h-72">
-        <ResponsiveContainer width="100%" height="100%">
+        {/* <ResponsiveContainer width="100%" height="100%">
           <PieChart>
             <Tooltip
               formatter={(value: number) => amountFormatter.format(value)}
@@ -114,7 +114,7 @@ const ExpendituresCard = ({ transactions, title = "Spending Breakdown" }: Expend
               cy="50%"
               innerRadius={60}
               outerRadius={90}
-              activeIndex={activeIndex}
+
               activeShape={renderActiveShape}
               onMouseEnter={(_, index) => setActiveIndex(index)}
             >
@@ -126,7 +126,7 @@ const ExpendituresCard = ({ transactions, title = "Spending Breakdown" }: Expend
               ))}
             </Pie>
           </PieChart>
-        </ResponsiveContainer>
+        </ResponsiveContainer> */}
       </CardContent>
     </Card>
   )
