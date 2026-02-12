@@ -1,50 +1,63 @@
-import type { VercelRequest, VercelResponse } from '@vercel/node';
-import fs from 'fs';
-import path from 'path';
+import type { VercelRequest, VercelResponse } from "@vercel/node"
+import { withAuth, authorizeResourceOwner } from "../src/lib/auth.js"
+import { readJson } from "../src/lib/api-helpers.js"
+import type { AuthenticatedUser } from "../src/lib/auth.js"
 
-// Original Express route:
-// app.get("/api/balance-history", (req, res) => {
-//   const data = readJson("balance-history.json") as {
-//     histories: Array<{ accountId: string; range: string }>
-//   }
-//   const accountId = typeof req.query.accountId === "string" ? req.query.accountId : undefined
-//   const range = typeof req.query.range === "string" ? req.query.range : undefined
-//
-//   if (!accountId || !range) {
-//     res.json(data)
-//     return
-//   }
-//
-//   res.json({
-//     histories: data.histories.filter(
-//       (history) => history.accountId === accountId && history.range === range
-//     ),
-//   })
-// })
-
-export default function handler(req: VercelRequest, res: VercelResponse) {
-  try {
-    const filePath = path.join(process.cwd(), 'api/src/data/balance-history.json');
-    const content = fs.readFileSync(filePath, 'utf8');
-    const data = JSON.parse(content) as {
-      histories: Array<{ accountId: string; range: string }>
-    };
-    
-    const accountId = typeof req.query.accountId === 'string' ? req.query.accountId : undefined;
-    const range = typeof req.query.range === 'string' ? req.query.range : undefined;
-    
-    if (!accountId || !range) {
-      res.json(data);
-      return;
-    }
-    
-    res.json({
-      histories: data.histories.filter(
-        (history) => history.accountId === accountId && history.range === range
-      ),
-    });
-  } catch (error) {
-    console.error('Error reading balance-history.json:', error);
-    res.status(500).json({ error: 'Failed to load balance history data' });
+const handler = async (
+  req: VercelRequest,
+  res: VercelResponse,
+  user: AuthenticatedUser
+) => {
+  if (req.method !== "GET") {
+    return res.status(405).json({ error: "Method not allowed" })
   }
+
+  const data = readJson("balance-history.json") as {
+    histories: Array<{ accountId: string; range: string }>
+  }
+
+  const accountId =
+    typeof req.query.accountId === "string" ? req.query.accountId : undefined
+  const range =
+    typeof req.query.range === "string" ? req.query.range : undefined
+
+  if (accountId) {
+    const accounts = readJson("accounts.json") as {
+      accounts: Array<{ id: string; customerId: string }>
+    }
+    const account = accounts.accounts.find((a) => a.id === accountId)
+
+    if (!account) {
+      return res.status(404).json({ error: "Account not found" })
+    }
+
+    if (!authorizeResourceOwner(user, account.customerId)) {
+      return res.status(403).json({ error: "Access denied to this account" })
+    }
+  }
+
+  if (user.role !== "admin") {
+    const accounts = readJson("accounts.json") as {
+      accounts: Array<{ id: string; customerId: string }>
+    }
+    const userAccountIds = accounts.accounts
+      .filter((a) => a.customerId === user.id)
+      .map((a) => a.id)
+
+    data.histories = data.histories.filter((h) =>
+      userAccountIds.includes(h.accountId)
+    )
+  }
+
+  if (accountId || range) {
+    data.histories = data.histories.filter((h) => {
+      if (accountId && h.accountId !== accountId) return false
+      if (range && h.range !== range) return false
+      return true
+    })
+  }
+
+  return res.json(data)
 }
+
+export default withAuth(handler, { permission: "read:balance-history" })

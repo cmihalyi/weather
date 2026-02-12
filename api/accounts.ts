@@ -1,21 +1,28 @@
-import type { VercelRequest, VercelResponse } from '@vercel/node';
-import fs from 'fs';
-import path from 'path';
+import type { VercelRequest, VercelResponse } from "@vercel/node"
+import { withAuth, type AuthenticatedUser} from "../src/lib/auth"
+import { readJson } from "../src/lib/api-helpers"
 
-// Original Express route:
-// app.get("/api/accounts", (_req, res) => {
-//   res.json(readJson("accounts.json"))
-// })
-
-export default function handler(_req: VercelRequest, res: VercelResponse) {
-  try {
-    const filePath = path.join(process.cwd(), 'api/src/data/accounts.json');
-    const content = fs.readFileSync(filePath, 'utf8');
-    const data = JSON.parse(content);
-    
-    res.json(data);
-  } catch (error) {
-    console.error('Error reading accounts.json:', error);
-    res.status(500).json({ error: 'Failed to load accounts data' });
+// Your actual handler - now receives authenticated user as third parameter
+const handler = async (req: VercelRequest, res: VercelResponse, user: AuthenticatedUser) => {
+  if (req.method !== "GET") {
+    return res.status(405).json({ error: "Method not allowed" })
   }
+  console.log("Authenticated user:", user)
+  const data = readJson("accounts.json") as { accounts: Array<{ customerId: string }> }
+  
+  // Filter accounts by user if not admin
+  if (user.role !== "admin") {
+    // In the future with a real DB, this would be:
+    // const accounts = await db.accounts.findMany({ where: { userId: user.id } })
+    data.accounts = data.accounts.filter(
+      (account) => account.customerId === user.id
+    )
+  }
+
+  return res.json(data)
 }
+
+// Export with authentication/authorization wrapper
+export default withAuth(handler, {
+  permission: "read:accounts",
+})

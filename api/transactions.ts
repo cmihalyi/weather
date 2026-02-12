@@ -1,42 +1,57 @@
-import type { VercelRequest, VercelResponse } from '@vercel/node';
-import fs from 'fs';
-import path from 'path';
+import type { VercelRequest, VercelResponse } from "@vercel/node"
+import { withAuth, authorizeResourceOwner } from "../src/lib/auth.js"
+import { readJson } from "../src/lib/api-helpers.js"
+import type { AuthenticatedUser } from "../src/lib/auth.js"
 
-// Original Express route:
-// app.get("/api/transactions", (req, res) => {
-//   const data = readJson("transactions.json") as {
-//     transactions: Array<{ accountId: string }>
-//   }
-//   const accountId = typeof req.query.accountId === "string" ? req.query.accountId : undefined
-//   if (!accountId) {
-//     res.json(data)
-//     return
-//   }
-//   res.json({
-//     transactions: data.transactions.filter((txn) => txn.accountId === accountId),
-//   })
-// })
-
-export default function handler(req: VercelRequest, res: VercelResponse) {
-  try {
-    const filePath = path.join(process.cwd(), 'api/src/data/transactions.json');
-    const content = fs.readFileSync(filePath, 'utf8');
-    const data = JSON.parse(content) as {
-      transactions: Array<{ accountId: string }>
-    };
-    
-    const accountId = typeof req.query.accountId === 'string' ? req.query.accountId : undefined;
-    
-    if (!accountId) {
-      res.json(data);
-      return;
-    }
-    
-    res.json({
-      transactions: data.transactions.filter((txn) => txn.accountId === accountId),
-    });
-  } catch (error) {
-    console.error('Error reading transactions.json:', error);
-    res.status(500).json({ error: 'Failed to load transactions data' });
+const handler = async (
+  req: VercelRequest,
+  res: VercelResponse,
+  user: AuthenticatedUser
+) => {
+  if (req.method !== "GET") {
+    return res.status(405).json({ error: "Method not allowed" })
   }
+
+  const data = readJson("transactions.json") as {
+    transactions: Array<{ accountId: string }>
+  }
+
+  const accountId =
+    typeof req.query.accountId === "string" ? req.query.accountId : undefined
+
+  if (accountId) {
+    const accounts = readJson("accounts.json") as {
+      accounts: Array<{ id: string; customerId: string }>
+    }
+    const account = accounts.accounts.find((a) => a.id === accountId)
+
+    if (!account) {
+      return res.status(404).json({ error: "Account not found" })
+    }
+
+    if (!authorizeResourceOwner(user, account.customerId)) {
+      return res.status(403).json({ error: "Access denied to this account" })
+    }
+
+    return res.json({
+      transactions: data.transactions.filter((txn) => txn.accountId === accountId),
+    })
+  }
+
+  if (user.role !== "admin") {
+    const accounts = readJson("accounts.json") as {
+      accounts: Array<{ id: string; customerId: string }>
+    }
+    const userAccountIds = accounts.accounts
+      .filter((a) => a.customerId === user.id)
+      .map((a) => a.id)
+
+    data.transactions = data.transactions.filter((txn) =>
+      userAccountIds.includes(txn.accountId)
+    )
+  }
+
+  return res.json(data)
 }
+
+export default withAuth(handler, { permission: "read:transactions" })
