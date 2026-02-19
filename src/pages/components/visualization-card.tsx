@@ -7,10 +7,10 @@
 //   Sector,
 //   Tooltip,
 // } from "recharts"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import type { Transaction } from "@/types/api"
+import { Card, CardContent, CardHeader, CardTitle } from "@app/components/ui/card"
+import type { Transaction } from "@shared/types/api"
 
-type ExpendituresCardProps = {
+type VisualizationCardProps = {
   transactions: Transaction[]
   title?: string
 }
@@ -68,7 +68,7 @@ type PieDatum = {
 //   )
 // }
 
-const ExpendituresCard = ({ transactions, title = "Spending Breakdown" }: ExpendituresCardProps) => {
+const VisualizationCard = ({ transactions, title = "Category Breakdown" }: VisualizationCardProps) => {
   // const [activeIndex, setActiveIndex] = useState(0)
   const totals = new Map<string, number>()
   transactions.forEach((transaction) => {
@@ -88,7 +88,7 @@ const ExpendituresCard = ({ transactions, title = "Spending Breakdown" }: Expend
           <CardTitle>{title}</CardTitle>
         </CardHeader>
         <CardContent>
-          <p className="text-sm text-muted-foreground">No expenditure data available.</p>
+          <p className="text-sm text-muted-foreground">No category data available.</p>
         </CardContent>
       </Card>
     )
@@ -132,4 +132,4 @@ const ExpendituresCard = ({ transactions, title = "Spending Breakdown" }: Expend
   )
 }
 
-export default ExpendituresCard
+export default VisualizationCard

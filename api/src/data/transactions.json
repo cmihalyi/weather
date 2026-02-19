@@ -1,404 +1,832 @@
 {
   "transactions": [
     {
+      "id": "txn_9200",
+      "accountId": "acc_1001",
+      "date": "2026-02-16T08:45:00.000Z",
+      "description": "Coffee Shop",
+      "amount": 6.75,
+      "type": "debit",
+      "category": "dining"
+    },
+    {
+      "id": "txn_9201",
+      "accountId": "acc_1001",
+      "date": "2026-02-14T17:30:00.000Z",
+      "description": "Grocery Market",
+      "amount": 74.22,
+      "type": "debit",
+      "category": "groceries"
+    },
+    {
+      "id": "txn_9202",
+      "accountId": "acc_1001",
+      "date": "2026-02-12T09:00:00.000Z",
+      "description": "Payroll Deposit",
+      "amount": 2450.0,
+      "type": "credit",
+      "category": "income"
+    },
+    {
+      "id": "txn_9203",
+      "accountId": "acc_1002",
+      "date": "2026-02-15T11:20:00.000Z",
+      "description": "Transfer from Checking",
+      "amount": 500.0,
+      "type": "credit",
+      "category": "transfer"
+    },
+    {
+      "id": "txn_9204",
+      "accountId": "acc_1002",
+      "date": "2026-02-13T14:00:00.000Z",
+      "description": "Online Purchase",
+      "amount": 49.99,
+      "type": "debit",
+      "category": "shopping"
+    },
+    {
+      "id": "txn_9205",
+      "accountId": "acc_2001",
+      "date": "2026-02-16T07:15:00.000Z",
+      "description": "Gas Station",
+      "amount": 61.4,
+      "type": "debit",
+      "category": "fuel"
+    },
+    {
+      "id": "txn_9206",
+      "accountId": "acc_2001",
+      "date": "2026-02-15T19:45:00.000Z",
+      "description": "Cafe Lunch",
+      "amount": 22.8,
+      "type": "debit",
+      "category": "dining"
+    },
+    {
+      "id": "txn_9207",
+      "accountId": "acc_2001",
+      "date": "2026-02-11T12:30:00.000Z",
+      "description": "Streaming Subscription",
+      "amount": 15.99,
+      "type": "debit",
+      "category": "entertainment"
+    },
+    {
       "id": "txn_9001",
       "accountId": "acc_1001",
-      "date": "2025-02-09T10:15:00.000Z",
+      "date": "2026-02-09T10:15:00.000Z",
       "description": "Grocery Market",
-      "amount": -86.42,
+      "amount": 86.42,
+      "type": "debit",
       "category": "groceries"
     },
     {
       "id": "txn_9002",
       "accountId": "acc_1001",
-      "date": "2025-02-08T17:42:00.000Z",
+      "date": "2026-02-08T17:42:00.000Z",
       "description": "Payroll Deposit",
       "amount": 2450,
+      "type": "credit",
       "category": "income"
     },
     {
       "id": "txn_9004",
       "accountId": "acc_2001",
-      "date": "2025-02-07T09:28:00.000Z",
+      "date": "2026-02-07T09:28:00.000Z",
       "description": "Utility Payment",
-      "amount": -120.75,
+      "amount": 120.75,
+      "type": "debit",
       "category": "utilities"
     },
     {
       "id": "txn_9003",
       "accountId": "acc_1002",
-      "date": "2025-02-05T13:05:00.000Z",
+      "date": "2026-02-05T13:05:00.000Z",
       "description": "Transfer from Checking",
       "amount": 300,
+      "type": "credit",
       "category": "transfer"
     },
     {
       "id": "txn_9012",
       "accountId": "acc_1001",
-      "date": "2025-02-01T00:00:00.000Z",
+      "date": "2026-02-01T00:00:00.000Z",
       "description": "Transfer",
       "amount": 83.39,
+      "type": "credit",
       "category": "transfer"
+    },
+    {
+      "id": "txn_9101",
+      "accountId": "acc_1001",
+      "date": "2026-02-06T08:30:00.000Z",
+      "description": "Gas Station",
+      "amount": 55.4,
+      "type": "debit",
+      "category": "fuel"
+    },
+    {
+      "id": "txn_9102",
+      "accountId": "acc_1001",
+      "date": "2026-02-03T12:15:00.000Z",
+      "description": "Cafe Lunch",
+      "amount": 18.75,
+      "type": "debit",
+      "category": "dining"
+    },
+    {
+      "id": "txn_9103",
+      "accountId": "acc_1001",
+      "date": "2026-01-31T09:00:00.000Z",
+      "description": "Utility Payment",
+      "amount": 145,
+      "type": "debit",
+      "category": "utilities"
+    },
+    {
+      "id": "txn_9104",
+      "accountId": "acc_1001",
+      "date": "2026-01-28T14:20:00.000Z",
+      "description": "Grocery Market",
+      "amount": 92.15,
+      "type": "debit",
+      "category": "groceries"
+    },
+    {
+      "id": "txn_9105",
+      "accountId": "acc_1001",
+      "date": "2026-01-24T11:00:00.000Z",
+      "description": "Pharmacy",
+      "amount": 34.2,
+      "type": "debit",
+      "category": "health"
+    },
+    {
+      "id": "txn_9106",
+      "accountId": "acc_1001",
+      "date": "2026-01-21T08:00:00.000Z",
+      "description": "Streaming Subscription",
+      "amount": 15.99,
+      "type": "debit",
+      "category": "entertainment"
+    },
+    {
+      "id": "txn_9107",
+      "accountId": "acc_1001",
+      "date": "2026-01-17T16:45:00.000Z",
+      "description": "ATM Withdrawal",
+      "amount": 100,
+      "type": "debit",
+      "category": "cash"
+    },
+    {
+      "id": "txn_9108",
+      "accountId": "acc_1001",
+      "date": "2026-01-15T10:30:00.000Z",
+      "description": "Online Purchase",
+      "amount": 67.99,
+      "type": "debit",
+      "category": "shopping"
+    },
+    {
+      "id": "txn_9109",
+      "accountId": "acc_1001",
+      "date": "2026-01-13T09:15:00.000Z",
+      "description": "Coffee Shop",
+      "amount": 12.5,
+      "type": "debit",
+      "category": "dining"
     },
     {
       "id": "txn_9039",
       "accountId": "acc_1002",
-      "date": "2025-01-22T04:00:00.000Z",
+      "date": "2026-01-22T04:00:00.000Z",
       "description": "Streaming Subscription",
-      "amount": -152.37,
+      "amount": 152.37,
+      "type": "debit",
       "category": "entertainment"
+    },
+    {
+      "id": "txn_9110",
+      "accountId": "acc_1002",
+      "date": "2026-02-04T10:00:00.000Z",
+      "description": "Payroll Deposit",
+      "amount": 2800,
+      "type": "credit",
+      "category": "income"
+    },
+    {
+      "id": "txn_9111",
+      "accountId": "acc_1002",
+      "date": "2026-01-25T08:00:00.000Z",
+      "description": "Monthly Rent",
+      "amount": 1200,
+      "type": "debit",
+      "category": "rent"
+    },
+    {
+      "id": "txn_9112",
+      "accountId": "acc_1002",
+      "date": "2026-01-18T13:30:00.000Z",
+      "description": "Online Purchase",
+      "amount": 210,
+      "type": "debit",
+      "category": "shopping"
+    },
+    {
+      "id": "txn_9113",
+      "accountId": "acc_1002",
+      "date": "2026-01-14T11:00:00.000Z",
+      "description": "Transfer",
+      "amount": 500,
+      "type": "credit",
+      "category": "transfer"
     },
     {
       "id": "txn_9045",
       "accountId": "acc_2001",
-      "date": "2025-01-20T23:00:00.000Z",
+      "date": "2026-01-20T23:00:00.000Z",
       "description": "Gas Station",
-      "amount": -173.74,
+      "amount": 173.74,
+      "type": "debit",
       "category": "fuel"
+    },
+    {
+      "id": "txn_9114",
+      "accountId": "acc_2001",
+      "date": "2026-02-10T09:00:00.000Z",
+      "description": "Pharmacy",
+      "amount": 56.25,
+      "type": "debit",
+      "category": "health"
+    },
+    {
+      "id": "txn_9115",
+      "accountId": "acc_2001",
+      "date": "2026-01-29T14:00:00.000Z",
+      "description": "Online Purchase",
+      "amount": 89.99,
+      "type": "debit",
+      "category": "shopping"
+    },
+    {
+      "id": "txn_9116",
+      "accountId": "acc_2001",
+      "date": "2026-01-23T12:30:00.000Z",
+      "description": "Cafe Lunch",
+      "amount": 28.9,
+      "type": "debit",
+      "category": "dining"
+    },
+    {
+      "id": "txn_9117",
+      "accountId": "acc_2001",
+      "date": "2026-01-16T08:00:00.000Z",
+      "description": "Transit Pass",
+      "amount": 32,
+      "type": "debit",
+      "category": "travel"
+    },
+    {
+      "id": "txn_9118",
+      "accountId": "acc_2001",
+      "date": "2026-01-13T10:00:00.000Z",
+      "description": "Grocery Market",
+      "amount": 44.3,
+      "type": "debit",
+      "category": "groceries"
     },
     {
       "id": "txn_9028",
       "accountId": "acc_1002",
-      "date": "2025-01-11T17:00:00.000Z",
+      "date": "2026-01-11T17:00:00.000Z",
       "description": "Transfer",
       "amount": 75.05,
+      "type": "credit",
       "category": "transfer"
     },
     {
       "id": "txn_9015",
       "accountId": "acc_1001",
-      "date": "2025-01-05T08:00:00.000Z",
+      "date": "2026-01-05T08:00:00.000Z",
       "description": "Service Fee",
-      "amount": -101.7,
+      "amount": 101.7,
+      "type": "debit",
       "category": "fees"
     },
     {
       "id": "txn_9049",
       "accountId": "acc_2001",
-      "date": "2025-01-01T06:00:00.000Z",
+      "date": "2026-01-01T06:00:00.000Z",
       "description": "Grocery Market",
-      "amount": -35.21,
+      "amount": 35.21,
+      "type": "debit",
       "category": "groceries"
     },
     {
       "id": "txn_9022",
       "accountId": "acc_1002",
-      "date": "2024-12-28T00:00:00.000Z",
+      "date": "2025-12-28T00:00:00.000Z",
       "description": "Transit Pass",
-      "amount": -70.93,
+      "amount": 70.93,
+      "type": "debit",
       "category": "travel"
     },
     {
       "id": "txn_9026",
       "accountId": "acc_1002",
-      "date": "2024-12-25T00:00:00.000Z",
+      "date": "2025-12-25T00:00:00.000Z",
       "description": "Payroll Deposit",
       "amount": 1252.26,
+      "type": "credit",
       "category": "income"
     },
     {
       "id": "txn_9020",
       "accountId": "acc_1002",
-      "date": "2024-12-23T13:00:00.000Z",
+      "date": "2025-12-23T13:00:00.000Z",
       "description": "Payroll Deposit",
       "amount": 1622.95,
+      "type": "credit",
       "category": "income"
+    },
+    {
+      "id": "txn_9119",
+      "accountId": "acc_1002",
+      "date": "2025-12-16T10:00:00.000Z",
+      "description": "Grocery Market",
+      "amount": 71.2,
+      "type": "debit",
+      "category": "groceries"
     },
     {
       "id": "txn_9011",
       "accountId": "acc_1001",
-      "date": "2024-12-14T17:00:00.000Z",
+      "date": "2025-12-14T17:00:00.000Z",
       "description": "Service Fee",
-      "amount": -181.62,
+      "amount": 181.62,
+      "type": "debit",
       "category": "fees"
     },
     {
       "id": "txn_9029",
       "accountId": "acc_1002",
-      "date": "2024-12-10T03:00:00.000Z",
+      "date": "2025-12-10T03:00:00.000Z",
       "description": "Service Fee",
-      "amount": -176.94,
+      "amount": 176.94,
+      "type": "debit",
       "category": "fees"
+    },
+    {
+      "id": "txn_9120",
+      "accountId": "acc_1001",
+      "date": "2025-12-02T09:00:00.000Z",
+      "description": "Online Purchase",
+      "amount": 134.5,
+      "type": "debit",
+      "category": "shopping"
+    },
+    {
+      "id": "txn_9121",
+      "accountId": "acc_2001",
+      "date": "2025-12-03T13:00:00.000Z",
+      "description": "Cafe Lunch",
+      "amount": 42.1,
+      "type": "debit",
+      "category": "dining"
     },
     {
       "id": "txn_9017",
       "accountId": "acc_1001",
-      "date": "2024-11-23T06:00:00.000Z",
+      "date": "2025-11-23T06:00:00.000Z",
       "description": "Pharmacy",
-      "amount": -88.72,
+      "amount": 88.72,
+      "type": "debit",
       "category": "health"
     },
     {
       "id": "txn_9024",
       "accountId": "acc_1002",
-      "date": "2024-11-18T20:00:00.000Z",
+      "date": "2025-11-18T20:00:00.000Z",
       "description": "Transfer",
       "amount": 165.32,
+      "type": "credit",
       "category": "transfer"
     },
     {
       "id": "txn_9034",
       "accountId": "acc_1002",
-      "date": "2024-11-17T03:00:00.000Z",
+      "date": "2025-11-17T03:00:00.000Z",
       "description": "Streaming Subscription",
-      "amount": -134.76,
+      "amount": 134.76,
+      "type": "debit",
       "category": "entertainment"
     },
     {
       "id": "txn_9035",
       "accountId": "acc_1002",
-      "date": "2024-11-15T14:00:00.000Z",
+      "date": "2025-11-15T14:00:00.000Z",
       "description": "Transfer",
       "amount": 564.8,
+      "type": "credit",
       "category": "transfer"
+    },
+    {
+      "id": "txn_9122",
+      "accountId": "acc_1001",
+      "date": "2025-11-26T10:00:00.000Z",
+      "description": "Gas Station",
+      "amount": 88.3,
+      "type": "debit",
+      "category": "fuel"
+    },
+    {
+      "id": "txn_9123",
+      "accountId": "acc_1002",
+      "date": "2025-11-25T14:00:00.000Z",
+      "description": "Utility Payment",
+      "amount": 95.6,
+      "type": "debit",
+      "category": "utilities"
     },
     {
       "id": "txn_9018",
       "accountId": "acc_1002",
-      "date": "2024-10-10T15:00:00.000Z",
+      "date": "2025-10-10T15:00:00.000Z",
       "description": "Grocery Market",
-      "amount": -64.76,
+      "amount": 64.76,
+      "type": "debit",
       "category": "groceries"
     },
     {
       "id": "txn_9047",
       "accountId": "acc_2001",
-      "date": "2024-10-03T23:00:00.000Z",
+      "date": "2025-10-03T23:00:00.000Z",
       "description": "Service Fee",
-      "amount": -101.34,
+      "amount": 101.34,
+      "type": "debit",
       "category": "fees"
+    },
+    {
+      "id": "txn_9124",
+      "accountId": "acc_1002",
+      "date": "2025-10-15T09:00:00.000Z",
+      "description": "Utility Payment",
+      "amount": 88.9,
+      "type": "debit",
+      "category": "utilities"
     },
     {
       "id": "txn_9048",
       "accountId": "acc_2001",
-      "date": "2024-09-13T22:00:00.000Z",
+      "date": "2025-09-13T22:00:00.000Z",
       "description": "Streaming Subscription",
-      "amount": -11.59,
+      "amount": 11.59,
+      "type": "debit",
       "category": "entertainment"
     },
     {
       "id": "txn_9027",
       "accountId": "acc_1002",
-      "date": "2024-09-06T19:00:00.000Z",
+      "date": "2025-09-06T19:00:00.000Z",
       "description": "Gas Station",
-      "amount": -217.38,
+      "amount": 217.38,
+      "type": "debit",
       "category": "fuel"
     },
     {
       "id": "txn_9050",
       "accountId": "acc_2001",
-      "date": "2024-09-05T13:00:00.000Z",
+      "date": "2025-09-05T13:00:00.000Z",
       "description": "Monthly Rent",
-      "amount": -125.52,
+      "amount": 125.52,
+      "type": "debit",
       "category": "rent"
+    },
+    {
+      "id": "txn_9125",
+      "accountId": "acc_1001",
+      "date": "2025-09-03T11:00:00.000Z",
+      "description": "Gas Station",
+      "amount": 112,
+      "type": "debit",
+      "category": "fuel"
+    },
+    {
+      "id": "txn_9126",
+      "accountId": "acc_2001",
+      "date": "2025-09-25T10:00:00.000Z",
+      "description": "Transit Pass",
+      "amount": 28.5,
+      "type": "debit",
+      "category": "travel"
+    },
+    {
+      "id": "txn_9127",
+      "accountId": "acc_1001",
+      "date": "2025-09-18T14:00:00.000Z",
+      "description": "Online Purchase",
+      "amount": 55.75,
+      "type": "debit",
+      "category": "shopping"
     },
     {
       "id": "txn_9006",
       "accountId": "acc_1001",
-      "date": "2024-08-30T10:00:00.000Z",
+      "date": "2025-08-30T10:00:00.000Z",
       "description": "Payroll Deposit",
       "amount": 959.03,
+      "type": "credit",
       "category": "income"
+    },
+    {
+      "id": "txn_9128",
+      "accountId": "acc_2001",
+      "date": "2025-08-28T09:00:00.000Z",
+      "description": "Grocery Market",
+      "amount": 62.1,
+      "type": "debit",
+      "category": "groceries"
+    },
+    {
+      "id": "txn_9129",
+      "accountId": "acc_1002",
+      "date": "2025-08-20T15:00:00.000Z",
+      "description": "Transfer",
+      "amount": 350,
+      "type": "credit",
+      "category": "transfer"
+    },
+    {
+      "id": "txn_9130",
+      "accountId": "acc_1001",
+      "date": "2025-08-14T08:00:00.000Z",
+      "description": "Payroll Deposit",
+      "amount": 2450,
+      "type": "credit",
+      "category": "income"
+    },
+    {
+      "id": "txn_9131",
+      "accountId": "acc_1001",
+      "date": "2025-08-22T11:00:00.000Z",
+      "description": "Grocery Market",
+      "amount": 78.4,
+      "type": "debit",
+      "category": "groceries"
     },
     {
       "id": "txn_9037",
       "accountId": "acc_1002",
-      "date": "2024-08-09T14:00:00.000Z",
+      "date": "2025-08-09T14:00:00.000Z",
       "description": "Monthly Rent",
-      "amount": -121.33,
+      "amount": 121.33,
+      "type": "debit",
       "category": "rent"
     },
     {
       "id": "txn_9031",
       "accountId": "acc_1002",
-      "date": "2024-07-31T06:00:00.000Z",
+      "date": "2025-07-31T06:00:00.000Z",
       "description": "Utility Payment",
-      "amount": -72.95,
+      "amount": 72.95,
+      "type": "debit",
       "category": "utilities"
     },
     {
       "id": "txn_9010",
       "accountId": "acc_1001",
-      "date": "2024-07-24T06:00:00.000Z",
+      "date": "2025-07-24T06:00:00.000Z",
       "description": "Streaming Subscription",
-      "amount": -43.81,
+      "amount": 43.81,
+      "type": "debit",
       "category": "entertainment"
     },
     {
       "id": "txn_9005",
       "accountId": "acc_1001",
-      "date": "2024-07-14T07:00:00.000Z",
+      "date": "2025-07-14T07:00:00.000Z",
       "description": "Monthly Rent",
-      "amount": -23.95,
+      "amount": 23.95,
+      "type": "debit",
       "category": "rent"
     },
     {
       "id": "txn_9033",
       "accountId": "acc_1002",
-      "date": "2024-07-07T20:00:00.000Z",
+      "date": "2025-07-07T20:00:00.000Z",
       "description": "Transfer",
       "amount": 190.15,
+      "type": "credit",
       "category": "transfer"
     },
     {
       "id": "txn_9008",
       "accountId": "acc_1001",
-      "date": "2024-07-07T10:00:00.000Z",
+      "date": "2025-07-07T10:00:00.000Z",
       "description": "Gas Station",
-      "amount": -190.21,
+      "amount": 190.21,
+      "type": "debit",
       "category": "fuel"
     },
     {
       "id": "txn_9023",
       "accountId": "acc_1002",
-      "date": "2024-07-03T20:00:00.000Z",
+      "date": "2025-07-03T20:00:00.000Z",
       "description": "Cafe Lunch",
-      "amount": -57.36,
+      "amount": 57.36,
+      "type": "debit",
       "category": "dining"
     },
     {
       "id": "txn_9041",
       "accountId": "acc_1002",
-      "date": "2024-06-18T20:00:00.000Z",
+      "date": "2025-06-18T20:00:00.000Z",
       "description": "Streaming Subscription",
-      "amount": -70.2,
+      "amount": 70.2,
+      "type": "debit",
       "category": "entertainment"
     },
     {
       "id": "txn_9032",
       "accountId": "acc_1002",
-      "date": "2024-06-18T04:00:00.000Z",
+      "date": "2025-06-18T04:00:00.000Z",
       "description": "Payroll Deposit",
       "amount": 928.59,
+      "type": "credit",
       "category": "income"
     },
     {
       "id": "txn_9013",
       "accountId": "acc_1001",
-      "date": "2024-06-06T03:00:00.000Z",
+      "date": "2025-06-06T03:00:00.000Z",
       "description": "Pharmacy",
-      "amount": -186.75,
+      "amount": 186.75,
+      "type": "debit",
       "category": "health"
     },
     {
       "id": "txn_9025",
       "accountId": "acc_1002",
-      "date": "2024-05-30T16:00:00.000Z",
+      "date": "2025-05-30T16:00:00.000Z",
       "description": "Online Purchase",
-      "amount": -180.65,
+      "amount": 180.65,
+      "type": "debit",
       "category": "shopping"
     },
     {
       "id": "txn_9014",
       "accountId": "acc_1001",
-      "date": "2024-05-25T19:00:00.000Z",
+      "date": "2025-05-25T19:00:00.000Z",
       "description": "Gas Station",
-      "amount": -154.73,
+      "amount": 154.73,
+      "type": "debit",
       "category": "fuel"
     },
     {
       "id": "txn_9042",
       "accountId": "acc_2001",
-      "date": "2024-05-22T00:00:00.000Z",
+      "date": "2025-05-22T00:00:00.000Z",
       "description": "Transfer",
       "amount": 190.13,
+      "type": "credit",
       "category": "transfer"
     },
     {
       "id": "txn_9043",
       "accountId": "acc_2001",
-      "date": "2024-05-18T15:00:00.000Z",
+      "date": "2025-05-18T15:00:00.000Z",
       "description": "Grocery Market",
-      "amount": -186.56,
+      "amount": 186.56,
+      "type": "debit",
       "category": "groceries"
     },
     {
       "id": "txn_9046",
       "accountId": "acc_2001",
-      "date": "2024-05-13T12:00:00.000Z",
+      "date": "2025-05-13T12:00:00.000Z",
       "description": "Gas Station",
-      "amount": -58.65,
+      "amount": 58.65,
+      "type": "debit",
       "category": "fuel"
     },
     {
       "id": "txn_9016",
       "accountId": "acc_1001",
-      "date": "2024-05-04T22:00:00.000Z",
+      "date": "2025-05-04T22:00:00.000Z",
       "description": "Transfer",
       "amount": 119.85,
+      "type": "credit",
       "category": "transfer"
     },
     {
       "id": "txn_9021",
       "accountId": "acc_1002",
-      "date": "2024-04-21T02:00:00.000Z",
+      "date": "2025-04-21T02:00:00.000Z",
       "description": "Cafe Lunch",
-      "amount": -203.13,
+      "amount": 203.13,
+      "type": "debit",
       "category": "dining"
     },
     {
       "id": "txn_9038",
       "accountId": "acc_1002",
-      "date": "2024-04-18T05:00:00.000Z",
+      "date": "2025-04-18T05:00:00.000Z",
       "description": "Service Fee",
-      "amount": -157.14,
+      "amount": 157.14,
+      "type": "debit",
       "category": "fees"
     },
     {
       "id": "txn_9030",
       "accountId": "acc_1002",
-      "date": "2024-04-08T15:00:00.000Z",
+      "date": "2025-04-08T15:00:00.000Z",
       "description": "Monthly Rent",
-      "amount": -110.33,
+      "amount": 110.33,
+      "type": "debit",
       "category": "rent"
     },
     {
       "id": "txn_9007",
       "accountId": "acc_1001",
-      "date": "2024-04-04T01:00:00.000Z",
+      "date": "2025-04-04T01:00:00.000Z",
       "description": "Online Purchase",
-      "amount": -218.85,
+      "amount": 218.85,
+      "type": "debit",
       "category": "shopping"
     },
     {
       "id": "txn_9019",
       "accountId": "acc_1002",
-      "date": "2024-03-27T23:00:00.000Z",
+      "date": "2025-03-27T23:00:00.000Z",
       "description": "Service Fee",
-      "amount": -46.43,
+      "amount": 46.43,
+      "type": "debit",
       "category": "fees"
     },
     {
       "id": "txn_9036",
       "accountId": "acc_1002",
-      "date": "2024-03-09T12:00:00.000Z",
+      "date": "2025-03-09T12:00:00.000Z",
       "description": "Service Fee",
-      "amount": -127.84,
+      "amount": 127.84,
+      "type": "debit",
       "category": "fees"
     },
     {
       "id": "txn_9009",
       "accountId": "acc_1001",
-      "date": "2024-03-08T15:00:00.000Z",
+      "date": "2025-03-08T15:00:00.000Z",
       "description": "Cafe Lunch",
-      "amount": -209.27,
+      "amount": 209.27,
+      "type": "debit",
       "category": "dining"
     },
     {
       "id": "txn_9040",
       "accountId": "acc_1002",
-      "date": "2024-02-21T12:00:00.000Z",
+      "date": "2025-02-21T12:00:00.000Z",
       "description": "Transfer",
       "amount": 471.49,
+      "type": "credit",
       "category": "transfer"
     },
     {
       "id": "txn_9044",
       "accountId": "acc_2001",
-      "date": "2024-02-11T13:00:00.000Z",
+      "date": "2025-02-11T13:00:00.000Z",
       "description": "Transit Pass",
-      "amount": -120.44,
+      "amount": 120.44,
+      "type": "debit",
       "category": "travel"
+    },
+    {
+      "id": "txn_9132",
+      "accountId": "acc_2001",
+      "date": "2025-03-01T08:00:00.000Z",
+      "description": "Payroll Deposit",
+      "amount": 1800,
+      "type": "credit",
+      "category": "income"
+    },
+    {
+      "id": "txn_9133",
+      "accountId": "acc_2001",
+      "date": "2025-06-01T08:00:00.000Z",
+      "description": "Payroll Deposit",
+      "amount": 1800,
+      "type": "credit",
+      "category": "income"
+    },
+    {
+      "id": "txn_9134",
+      "accountId": "acc_2001",
+      "date": "2025-10-01T08:00:00.000Z",
+      "description": "Payroll Deposit",
+      "amount": 1800,
+      "type": "credit",
+      "category": "income"
     }
   ]
 }

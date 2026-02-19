@@ -1,17 +1,9 @@
-import Accounts from "@/components/accounts"
-import Transactions from "@/pages/components/transactions"
-import Messages from "@/pages/components/messages"
-import BalanceHistory from "@/pages/components/balance-history"
-import Expenditures from "@/pages/components/expenditures"
-import { useEffect } from "react"
+import Accounts from "@app/components/accounts"
+import Messages from "@app/pages/components/messages"
+import BalanceHistory from "@app/pages/components/balance-history"
 
 const Dashboard = () => {
 
-  useEffect(() => {
-    console.log("Dashboard effect")
-  }, [])
-
-  console.log("Rendering Dashboard")
   return (
     <>
       <h1 className="scroll-m-20 text-4xl font-semibold tracking-tight text-balance">
@@ -19,8 +11,6 @@ const Dashboard = () => {
       </h1>
       <Accounts />
       <BalanceHistory />
-      <Expenditures />
-      <Transactions />
       <Messages />
     </>
   )

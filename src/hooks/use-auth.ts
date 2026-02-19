@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import type { Session, User } from "@supabase/supabase-js"
-import { getSession, onAuthChange } from "@/lib/auth"
+import { getSession, onAuthChange } from "@app/lib/auth"
 
 type AuthState = {
   session: Session | null

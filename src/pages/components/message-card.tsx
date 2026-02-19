@@ -4,10 +4,10 @@ import {
   CardContent,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card"
-import { ScrollArea } from "@/components/ui/scroll-area"
-import { cn } from "@/lib/utils"
-import type { Message } from "@/types/api"
+} from "@app/components/ui/card"
+import { ScrollArea } from "@app/components/ui/scroll-area"
+import { cn } from "@app/lib/utils"
+import type { Message } from "@shared/types/api"
 
 type MessageCardProps = {
   messages: Message[]

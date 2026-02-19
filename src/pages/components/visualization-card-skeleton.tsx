@@ -1,7 +1,7 @@
-import { Card, CardContent, CardHeader } from "@/components/ui/card"
-import { Skeleton } from "@/components/ui/skeleton"
+import { Card, CardContent, CardHeader } from "@app/components/ui/card"
+import { Skeleton } from "@app/components/ui/skeleton"
 
-const ExpendituresCardSkeleton = () => {
+const VisualizationCardSkeleton = () => {
   return (
     <Card>
       <CardHeader className="space-y-2">
@@ -15,4 +15,4 @@ const ExpendituresCardSkeleton = () => {
   )
 }
 
-export default ExpendituresCardSkeleton
+export default VisualizationCardSkeleton

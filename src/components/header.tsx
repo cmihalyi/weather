@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
-import { useTheme } from '../context/theme-provider'
 import { Moon, Sun } from 'lucide-react';
-import { signOut } from '@/lib/auth';
+import { useTheme } from '@app/context/theme-provider'
+import { signOut } from '@app/lib/auth';
 
 type HeaderProps = {
   email?: string

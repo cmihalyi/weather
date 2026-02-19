@@ -1,6 +1,6 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent, CardHeader, CardTitle } from "@app/components/ui/card"
 
-const ExpendituresCardError = () => {
+const VisualizationCardError = () => {
   return (
     <Card>
       <CardHeader>
@@ -13,4 +13,4 @@ const ExpendituresCardError = () => {
   )
 }
 
-export default ExpendituresCardError
+export default VisualizationCardError

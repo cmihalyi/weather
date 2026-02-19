@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
-import { signInWithEmail } from "@/lib/auth"
+import { signInWithEmail } from "@app/lib/auth"
 
 const LoginPage = () => {
   const navigate = useNavigate()

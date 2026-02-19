@@ -1,6 +1,6 @@
 import { type PropsWithChildren } from 'react'
-import Header from './header'
-import { useAuth } from '@/hooks/use-auth'
+import Header from '@app/components/header'
+import { useAuth } from '@app/hooks/use-auth'
 const Layout = ({children}: PropsWithChildren) => {
     const { user, session } = useAuth()
     

@@ -3,7 +3,7 @@ import {
   CardContent,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card"
+} from "@app/components/ui/card"
 import {
   Table,
   TableBody,
@@ -11,9 +11,9 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table"
-import { cn } from "@/lib/utils"
-import type { Transaction } from "@/types/api"
+} from "@app/components/ui/table"
+import { cn } from "@app/lib/utils"
+import type { Transaction } from "@shared/types/api"
 
 type TransactionCardProps = {
   transactions: Transaction[]
@@ -22,7 +22,6 @@ type TransactionCardProps = {
 const amountFormatter = new Intl.NumberFormat("en-US", {
   style: "currency",
   currency: "USD",
-  signDisplay: "always",
   maximumFractionDigits: 2,
 })
 
@@ -81,10 +80,9 @@ const TransactionCard = ({ transactions }: TransactionCardProps) => {
                 <TableCell
                   className={cn(
                     "text-right font-semibold",
-                    transaction.amount < 0 ? "text-destructive" : "text-emerald-600"
                   )}
                 >
-                  {amountFormatter.format(transaction.amount)}
+                  {transaction.type === "debit" ? "-" : ""}{amountFormatter.format(transaction.amount)}
                 </TableCell>
               </TableRow>
             ))}
