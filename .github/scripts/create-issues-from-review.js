@@ -250,6 +250,12 @@ async function postSummaryComment(closedIssues, createdIssues) {
 
 async function run() {
   try {
+    const issueResolutionEnabled = process.env.ENABLE_ISSUE_RESOLUTION_CHECK === 'true';
+    if (!issueResolutionEnabled) {
+      console.log('Issue resolution check is disabled (ENABLE_ISSUE_RESOLUTION_CHECK != true). Skipping.');
+      process.exit(0);
+    }
+
     const reviewText = await getLatestAIReviewComment();
     if (!reviewText) process.exit(0);
 

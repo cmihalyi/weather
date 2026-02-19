@@ -66,6 +66,7 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_BODY: ${{ github.event.pull_request.body }}
+          ENABLE_ISSUE_RESOLUTION_CHECK: ${{ vars.ENABLE_ISSUE_RESOLUTION_CHECK }}
         run: |
           npm install --save-dev @anthropic-ai/sdk @octokit/rest
           node .github/scripts/ai-review.js "${{ steps.changed-files.outputs.all_changed_files }}"

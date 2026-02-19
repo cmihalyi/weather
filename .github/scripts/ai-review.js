@@ -67,12 +67,16 @@ async function reviewCode() {
   const prNumber = process.env.GITHUB_REF?.split('/')[2];
   const repo = process.env.GITHUB_REPOSITORY;
   const prBody = process.env.PR_BODY || '';
+  const issueResolutionEnabled = process.env.ENABLE_ISSUE_RESOLUTION_CHECK === 'true';
 
   console.log(`Reviewing ${changedFiles.length} changed files...`);
+  console.log(`Issue resolution check: ${issueResolutionEnabled ? 'enabled' : 'disabled'}`);
 
-  // Fetch any issues referenced in the PR description
-  const referencedIssueNumbers = parseReferencedIssues(prBody);
-  const referencedIssues = await fetchReferencedIssues(referencedIssueNumbers, repo);
+  // Fetch any issues referenced in the PR description (only when feature is enabled)
+  const referencedIssueNumbers = issueResolutionEnabled ? parseReferencedIssues(prBody) : [];
+  const referencedIssues = issueResolutionEnabled
+    ? await fetchReferencedIssues(referencedIssueNumbers, repo)
+    : [];
 
   // Get the diff for each changed file
   let fullDiff = '';
