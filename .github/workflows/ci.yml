@@ -37,6 +37,7 @@ jobs:
     permissions:
       pull-requests: write
       contents: read
+      issues: read
     
     steps:
       - name: Checkout code
@@ -64,11 +65,9 @@ jobs:
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_BODY: ${{ github.event.pull_request.body }}
         run: |
-          # Install dependencies for the review script
-          npm install --save-dev @anthropic-ai/sdk
-
-          # Create and run the review script
+          npm install --save-dev @anthropic-ai/sdk @octokit/rest
           node .github/scripts/ai-review.js "${{ steps.changed-files.outputs.all_changed_files }}"
 
   deploy-preview:
