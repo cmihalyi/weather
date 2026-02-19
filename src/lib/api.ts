@@ -18,10 +18,8 @@ export const fetchJson = async <T>(endpoint: string): Promise<T> => {
     headers.Authorization = `Bearer ${session.access_token}`
   }
 
-
   const response = await fetch(endpoint, { headers })
  
-  console.log(response)
   if (!response.ok) {
     throw new Error(`Request failed: ${response.status}`)
   }

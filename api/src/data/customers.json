@@ -1,14 +1,14 @@
 {
   "customers": [
     {
-      "id": "cust_001",
+      "id": "ae128990-d260-482c-8709-54e3a15e68d2",
       "firstName": "Ava",
       "lastName": "Nguyen",
       "email": "ava.nguyen@example.com",
       "createdAt": "2024-10-12T09:15:00.000Z"
     },
     {
-      "id": "cust_002",
+      "id": "49817b72-deaa-4b0e-acf5-1e3207971e66",
       "firstName": "Mateo",
       "lastName": "Santos",
       "email": "mateo.santos@example.com",

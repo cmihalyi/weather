@@ -1,5 +1,5 @@
 import { Suspense, type ReactNode } from "react"
-import ErrorBoundary from "@/components/error-boundary"
+import ErrorBoundary from "@app/components/error-boundary"
 
 type QueryCardProps = {
   fallback: ReactNode

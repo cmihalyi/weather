@@ -1,8 +1,6 @@
-import Accounts from "@/components/accounts"
-import Transactions from "@/pages/components/transactions"
-import Messages from "@/pages/components/messages"
-import BalanceHistory from "@/pages/components/balance-history"
-import Expenditures from "@/pages/components/expenditures"
+import Accounts from "@app/components/accounts"
+import Messages from "@app/pages/components/messages"
+import BalanceHistory from "@app/pages/components/balance-history"
 
 const Dashboard = () => {
 
@@ -13,8 +11,6 @@ const Dashboard = () => {
       </h1>
       <Accounts />
       <BalanceHistory />
-      <Expenditures />
-      <Transactions />
       <Messages />
     </>
   )

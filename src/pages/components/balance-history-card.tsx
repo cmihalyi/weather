@@ -7,12 +7,20 @@ import {
   XAxis,
   YAxis,
 } from "recharts"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import type { BalanceHistoryPoint } from "@/types/api"
+import { Select, SelectItem, SelectTrigger, SelectValue, SelectContent, SelectGroup, SelectLabel } from "@app/components/ui/select"
+import { Card, CardContent, CardHeader, CardTitle } from "@app/components/ui/card"
+import type { BalanceHistoryPoint, DateRangeOption } from "@shared/types/api"
 import { RechartsDevtools } from "@recharts/devtools"
+import type React from "react"
 
 type BalanceHistoryCardProps = {
-  title?: string
+  title: string
+  range: string
+  onRangeChange: React.Dispatch<React.SetStateAction<DateRangeOption>>
+  onAccountChange: React.Dispatch<React.SetStateAction<string>>
+  account: string
+  accounts: string[]
+  ranges: DateRangeOption[]
   points: BalanceHistoryPoint[]
 }
 
@@ -27,7 +35,7 @@ const dateFormatter = new Intl.DateTimeFormat("en-US", {
   day: "numeric",
 })
 
-const BalanceHistoryCard = ({ points, title = "Balance History" }: BalanceHistoryCardProps) => {
+const BalanceHistoryCard = ({ points, title, ranges, range, onRangeChange, account, onAccountChange, accounts }: BalanceHistoryCardProps) => {
   if (points.length === 0) {
     return (
       <Card>
@@ -47,11 +55,44 @@ const BalanceHistoryCard = ({ points, title = "Balance History" }: BalanceHistor
     <Card>
       <CardHeader>
         <CardTitle>{title}</CardTitle>
+        <div>
+          <Select value={account} onValueChange={(value) => onAccountChange(value as string)}>
+            <SelectTrigger className="w-full max-w-48">
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectGroup>
+                <SelectLabel>Account</SelectLabel>
+                {accounts.map((item) => (
+                  <SelectItem key={item} value={item}>
+                    {item}
+                  </SelectItem>
+                ))}
+              </SelectGroup>
+            </SelectContent>
+          </Select>
+
+          <Select value={range} onValueChange={(value) => onRangeChange(value as DateRangeOption)}>
+            <SelectTrigger className="w-full max-w-48">
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectGroup>
+                <SelectLabel>Range</SelectLabel>
+                {ranges.map((item) => (
+                  <SelectItem key={item} value={item}>
+                    {item}
+                  </SelectItem>
+                ))}
+              </SelectGroup>
+            </SelectContent>
+          </Select>
+        </div>
       </CardHeader>
       <CardContent className="h-72">
         <ResponsiveContainer width="100%" height="100%">
           <AreaChart data={data} margin={{ top: 10, right: 12, left: 0, bottom: 0 }}>
-                      <defs>
+            <defs>
               <linearGradient id="colorBalance" x1="0" y1="0" x2="0" y2="1">
                 <stop offset="5%" stopColor="var(--chart-2)" stopOpacity={0.8} />
                 <stop offset="90%" stopColor="var(--chart-2)" stopOpacity={0.05} />

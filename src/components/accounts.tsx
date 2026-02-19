@@ -1,21 +1,20 @@
-import { useApiSuspenseQuery } from "@/hooks/use-api-query"
-import type { AccountsResponse } from "@/types/api"
-import AccountCard from "@/components/account-card"
-import AccountCardSkeleton from "@/components/account-card-skeleton"
-import AccountCardError from "@/components/account-card-error"
-import ErrorBoundaryAndSuspenseWrapper from "@/components/error-boundary-and-suspense-wrapper"
+import { useApiSuspenseQuery } from "@app/hooks/use-api-query"
+import type { AccountsApiResponse } from "@shared/types/api"
+import AccountCard from "@app/components/account-card"
+import AccountCardSkeleton from "@app/components/account-card-skeleton"
+import AccountCardError from "@app/components/account-card-error"
+import ErrorBoundaryAndSuspenseWrapper from "@app/components/error-boundary-and-suspense-wrapper"
 
 const AccountsContent = () => {
-  const result = useApiSuspenseQuery<AccountsResponse>("/api/accounts")
-
-  const accounts = result.data?.accounts ?? []
-  if (accounts.length < 1) {
+  const { data: accounts } = useApiSuspenseQuery<AccountsApiResponse>("/api/accounts")
+ 
+  if (accounts.data.length < 1) {
     return <div>No accounts available.</div>
   }
 
   return (
     <>
-      {accounts.map((account) => (
+      {accounts.data.map((account) => (
         <AccountCard key={account.id} account={account} />
       ))}
     </>

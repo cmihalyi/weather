@@ -1,14 +1,14 @@
-import { useApiSuspenseQuery } from "@/hooks/use-api-query"
-import type { TransactionsResponse } from "@/types/api"
-import AccountCardSkeleton from "@/components/account-card-skeleton"
-import AccountCardError from "@/components/account-card-error"
-import ErrorBoundaryAndSuspenseWrapper from "@/components/error-boundary-and-suspense-wrapper"
+import { useApiSuspenseQuery } from "@app/hooks/use-api-query"
+import type { TransactionsPaginatedApiResponse } from "@shared/types/api"
+import AccountCardSkeleton from "@app/components/account-card-skeleton"
+import AccountCardError from "@app/components/account-card-error"
+import ErrorBoundaryAndSuspenseWrapper from "@app/components/error-boundary-and-suspense-wrapper"
 import TransactionCard from "./transaction-card"
 
 const TransactionsContent = () => {
-  const result = useApiSuspenseQuery<TransactionsResponse>("/api/transactions")
-
-  const transactions = result.data?.transactions ?? []
+  const { data } = useApiSuspenseQuery<TransactionsPaginatedApiResponse>("/api/transactions")
+  console.log("Transactions query result:", data) // Debug log to check the query result
+  const transactions = data.data ?? []
   if (transactions.length < 1) {
     return <div>No transactions available.</div>
   }

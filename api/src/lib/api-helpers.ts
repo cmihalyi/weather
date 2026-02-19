@@ -1,5 +1,5 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
-import { withAuth, type AuthenticatedUser } from "@/lib/auth";
+import { withAuth, type AuthenticatedUser } from "../../src/lib/auth.js";
 import fs from "node:fs"
 import path from "node:path"
 
@@ -24,15 +24,17 @@ export const createReadOnlyRoute = (
     jsonFileName: string,
     permission: string
 ) => {
+
     const handler = async (req: VercelRequest, res: VercelResponse) => {
         if(req.method !== "GET") {
             return res.status(405).json({ error: "Method not allowed" })
         }
 
         const data = readJson(jsonFileName)
-        return res.json(data)
+        const [key] = Object.keys(data)
+        return res.json({ data: data[key] })
     }
-    
+
     return withAuth(handler, { permission })
 }
 
@@ -71,7 +73,7 @@ export const createUserFilteredRoute = (
             })
         }
         
-    return res.json(data)
+        return res.json({ data: data[dataKey] })
     }
 
     return withAuth(handler, { permission })
