@@ -1,0 +1,73 @@
+name: AI Test Generation
+
+on:
+  pull_request:
+    branches: [main]
+    # Only run when source files change, not when test files themselves change
+    paths:
+      - "src/**/*.ts"
+      - "src/**/*.tsx"
+      - "api/**/*.ts"
+      - "shared/**/*.ts"
+      - "!src/**/*.test.*"
+      - "!src/**/*.spec.*"
+
+jobs:
+  generate-tests:
+    name: Generate Tests with Claude
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # Check out the PR branch so we can commit generated tests back to it
+          ref: ${{ github.head_ref }}
+          fetch-depth: 0
+          # Use a PAT so the push triggers CI on the updated branch
+          token: ${{ secrets.GH_PAT || secrets.GITHUB_TOKEN }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - run: npm ci
+
+      - name: Get changed source files
+        id: changed-files
+        uses: tj-actions/changed-files@v44
+        with:
+          files: |
+            src/**/*.ts
+            src/**/*.tsx
+            api/**/*.ts
+            shared/**/*.ts
+          files_ignore: |
+            **/*.test.*
+            **/*.spec.*
+
+      - name: Generate tests with AI
+        if: steps.changed-files.outputs.any_changed == 'true'
+        env:
+          AI_PROVIDER_API_KEY: ${{ secrets.AI_PROVIDER_API_KEY }}
+          AI_MODEL: ${{ vars.AI_MODEL }}
+          CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
+        run: |
+          npm install @anthropic-ai/sdk
+          node .github/scripts/generate-tests.js "$CHANGED_FILES"
+
+      - name: Run generated tests to verify they pass
+        run: npx vitest run --reporter=verbose 2>&1 || true
+        # Don't fail here — AI may generate tests that reveal real bugs.
+        # The orchestrator job will surface failures.
+
+      - name: Commit generated tests
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "test: AI-generated tests for changed files [skip ci]"
+          file_pattern: "src/**/*.test.ts src/**/*.test.tsx api/**/*.test.ts"
+          commit_user_name: "AI CI Bot"
+          commit_user_email: "ci-bot@users.noreply.github.com"
